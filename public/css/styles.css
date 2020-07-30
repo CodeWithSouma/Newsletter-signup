@@ -64,3 +64,17 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.container{
+  text-align: center;
+}
+.message{
+  margin: auto;
+}
+.emoji{
+  color: #e23e57;
+  margin: 20px;
+}
+.message h1{
+  font-size: 2rem;
+}
