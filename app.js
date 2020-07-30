@@ -16,6 +16,7 @@ app.get("/",function(req,res){
     res.sendFile(__dirname+"/signup.html");
 });
 
+// post route
 app.post("/",function(req,res){
     var firstName = req.body.fName;
     var lastName = req.body.lName;
@@ -49,19 +50,25 @@ app.post("/",function(req,res){
         url :"https://us17.api.mailchimp.com/3.0/lists/25d21a1675",
         method:"POST",
         headers : {
-            // "Authorization" : "CodeWithSouma 491405605dbc966216a94ab6ec013fd0-us17"
+            "Authorization" : "CodeWithSouma 491405605dbc966216a94ab6ec013fd0-us17"//headers helps to authenticate basic http request
         },
-        body:jsonData
+        body:jsonData//pass user data as a json string
     }
     request(option,function(error,response, body){
         if(error||response.statusCode!==200){
-            res.send("Unsuccesfull.");
+            res.sendFile(__dirname+"/failure.html");
         }
         else if(response.statusCode === 200){
-            res.send("succesfull.");
+            res.sendFile(__dirname+"/success.html");
         }
 
     });
+});
+
+
+// post route
+app.post("/failure",function(req,res){
+    res.redirect("/");
 });
 
 app.listen(3000,function(){
