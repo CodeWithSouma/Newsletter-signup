@@ -71,7 +71,12 @@ app.post("/failure",function(req,res){
     res.redirect("/");
 });
 
-app.listen(3000,function(){
+//this port working with localhost 
+// app.listen(3000,function(){
+//     console.log("Server is running at port 3000.");
+// });
+
+//heroku deploy and localhost both work
+app.listen(process.env.PORT || 3000,function(){
     console.log("Server is running at port 3000.");
 });
-
